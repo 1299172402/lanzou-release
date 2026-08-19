@@ -22,7 +22,7 @@ jobs:
 
       - name: 上传到蓝奏云
         id: lanzou
-        uses: 1299172402/lanzou_release@main
+        uses: 1299172402/lanzou-release@main
         with:
           ylogin: ${{ secrets.LANZOU_YLOGIN }}
           phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
