@@ -28,5 +28,20 @@ outputs:
     description: '上传状态，success 表示全部成功，partial 表示部分成功'
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: composite
+  steps:
+    - uses: actions/setup-python@v7
+      with:
+        python-version: '3.13'
+        cache: 'pip' # caching pip dependencies
+    - run: pip install -r requirements.txt
+
+    - name: 执行上传脚本
+      run: python main.py
+      shell: bash
+      env:
+        INPUT_YLOGIN: ${{ inputs.ylogin }}
+        INPUT_PHPDISK_INFO: ${{ inputs.phpdisk_info }}
+        INPUT_FOLDER_ID: ${{ inputs.folder_id }}
+        INPUT_FILE_PATH: ${{ inputs.file_path }}
+        INPUT_FILE_NAME: ${{ inputs.file_name }}
