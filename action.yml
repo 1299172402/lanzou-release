@@ -7,9 +7,6 @@ branding:
   color: 'blue'
 
 inputs:
-  ylogin:
-    description: '蓝奏云登录 Cookie 中的 ylogin 值'
-    required: true
   phpdisk_info:
     description: '蓝奏云登录 Cookie 中的 phpdisk_info 值'
     required: true
@@ -43,7 +40,6 @@ runs:
       run: python main.py
       shell: bash
       env:
-        INPUT_YLOGIN: ${{ inputs.ylogin }}
         INPUT_PHPDISK_INFO: ${{ inputs.phpdisk_info }}
         INPUT_FOLDER_ID: ${{ inputs.folder_id }}
         INPUT_FILE_PATH: ${{ inputs.file_path }}

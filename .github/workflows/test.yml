@@ -24,7 +24,6 @@ jobs:
         id: lanzou
         uses: 1299172402/lanzou-release@main
         with:
-          ylogin: ${{ secrets.LANZOU_YLOGIN }}
           phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
           folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
           file_path: 'dist/*.zip'

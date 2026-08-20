@@ -14,7 +14,6 @@
 - name: 上传到蓝奏云
   uses: 1299172402/lanzou-release@v1
   with:
-    ylogin: ${{ secrets.LANZOU_YLOGIN }}
     phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
     folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
     file_path: 'dist/*.zip'
@@ -49,7 +48,6 @@ jobs:
         id: lanzou
         uses: 1299172402/lanzou-release@v1
         with:
-          ylogin: ${{ secrets.LANZOU_YLOGIN }}
           phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
           folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
           file_path: 'dist/*.zip'
@@ -66,7 +64,6 @@ jobs:
 - name: 上传多个文件
   uses: 1299172402/lanzou-release@v1
   with:
-    ylogin: ${{ secrets.LANZOU_YLOGIN }}
     phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
     folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
     file_path: 'release/*.zip'
@@ -80,7 +77,6 @@ jobs:
 - name: 上传并重命名
   uses: 1299172402/lanzou-release@v1
   with:
-    ylogin: ${{ secrets.LANZOU_YLOGIN }}
     phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
     folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
     file_path: 'dist/app.exe'
@@ -91,7 +87,6 @@ jobs:
 
 | 参数 | 必填 | 说明 |
 |------|------|------|
-| `ylogin` | ✅ | 蓝奏云登录 Cookie 中的 `ylogin` 值 |
 | `phpdisk_info` | ✅ | 蓝奏云登录 Cookie 中的 `phpdisk_info` 值 |
 | `folder_id` | ✅ | 目标文件夹 ID |
 | `file_path` | ✅ | 文件路径，支持 glob 模式（如 `dist/*.zip`） |
@@ -112,7 +107,7 @@ jobs:
 
 1. 浏览器登录 [蓝奏云](https://pc.woozooo.com)
 2. 打开开发者工具（F12）→ Application → Cookies
-3. 复制 `ylogin` 和 `phpdisk_info` 的值
+3. 复制 `phpdisk_info` 的值
 4. 建议存入 GitHub Secrets
 
 ## 安全提示
@@ -120,11 +115,11 @@ jobs:
 ⚠️ **强烈建议**将 Cookie 值存入 GitHub Secrets，不要明文写在 workflow 文件中：
 
 1. 进入仓库 → Settings → Secrets and variables → Actions
-2. 添加 `LANZOU_YLOGIN` 和 `LANZOU_PHPDISK_INFO`
-3. 在 workflow 中用 `${{ secrets.LANZOU_YLOGIN }}` 引用
+2. 添加 `LANZOU_PHPDISK_INFO`
+3. 在 workflow 中用 `${{ secrets.LANZOU_PHPDISK_INFO }}` 引用
 
 ## 技术栈
 
-- **运行时**：Python 3.12（Alpine Docker 镜像）
+- **运行时**：Python 3.12
 - **依赖**：[requests](https://pypi.org/project/requests/)
 - **上传接口**：蓝奏云 PC 端 HTML5 上传 API (`pc.woozooo.com`)

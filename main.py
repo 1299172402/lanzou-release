@@ -12,7 +12,6 @@ import time
 import requests
 
 # ==================== 从环境变量读取 Inputs ====================
-YLOGIN = os.environ.get("INPUT_YLOGIN", "")
 PHPDISK_INFO = os.environ.get("INPUT_PHPDISK_INFO", "")
 FOLDER_ID = os.environ.get("INPUT_FOLDER_ID", "")
 FILE_PATH = os.environ.get("INPUT_FILE_PATH", "")
@@ -37,7 +36,6 @@ HEADERS = {
 }
 
 COOKIES = {
-    "ylogin": YLOGIN,
     "phpdisk_info": PHPDISK_INFO,
     "folder_id_c": FOLDER_ID,
 }
@@ -160,8 +158,6 @@ def set_output(name: str, value: str):
 def main():
     # 验证必填参数
     missing = []
-    if not YLOGIN:
-        missing.append("ylogin")
     if not PHPDISK_INFO:
         missing.append("phpdisk_info")
     if not FOLDER_ID:
