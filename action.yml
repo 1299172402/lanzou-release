@@ -33,11 +33,11 @@ runs:
         cache: 'pip' # caching pip dependencies
       
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: pip install -r ${{ github.action_path }}/requirements.txt
       shell: bash
 
     - name: Upload to Lanzou Cloud
-      run: python main.py
+      run: python ${{ github.action_path }}/main.py
       shell: bash
       env:
         INPUT_PHPDISK_INFO: ${{ inputs.phpdisk_info }}
