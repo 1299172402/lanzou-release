@@ -28,6 +28,7 @@ runs:
   using: composite
   steps:
     # https://github.com/actions/setup-python/issues/1202
+    # https://github.com/actions/setup-python/pull/1128
     - name: Create symbolic link for requirements.txt
       run: ln -s ${{ github.action_path }}/requirements.txt ./composite-requirements.txt
       shell: bash
