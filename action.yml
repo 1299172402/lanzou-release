@@ -27,11 +27,16 @@ outputs:
 runs:
   using: composite
   steps:
+    # https://github.com/actions/setup-python/issues/1202
+    - name: Create symbolic link for requirements.txt
+      run: ln -s ${{ github.action_path }}/requirements.txt ./composite-requirements.txt
+      shell: bash
+
     - uses: actions/setup-python@v7
       with:
         python-version: '3.13'
         cache: 'pip'
-        cache-dependency-path: '${{ github.action_path }}/requirements.txt'
+        cache-dependency-path: './composite-requirements.txt'
 
     - name: Install dependencies
       run: pip install -r ${{ github.action_path }}/requirements.txt
