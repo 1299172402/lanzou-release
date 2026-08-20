@@ -12,7 +12,7 @@
 
 ```yaml
 - name: 上传到蓝奏云
-  uses: 1299172402/lanzou-release@v1
+  uses: 1299172402/lanzou-release@main
   with:
     phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
     folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
@@ -46,7 +46,7 @@ jobs:
 
       - name: 上传到蓝奏云
         id: lanzou
-        uses: 1299172402/lanzou-release@v1
+        uses: 1299172402/lanzou-release@main
         with:
           phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
           folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
@@ -62,7 +62,7 @@ jobs:
 
 ```yaml
 - name: 上传多个文件
-  uses: 1299172402/lanzou-release@v1
+  uses: 1299172402/lanzou-release@main
   with:
     phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
     folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
@@ -75,7 +75,7 @@ jobs:
 
 ```yaml
 - name: 上传并重命名
-  uses: 1299172402/lanzou-release@v1
+  uses: 1299172402/lanzou-release@main
   with:
     phpdisk_info: ${{ secrets.LANZOU_PHPDISK_INFO }}
     folder_id: ${{ secrets.LANZOU_FOLDER_ID }}
